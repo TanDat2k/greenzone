@@ -6,7 +6,6 @@ import { contractABI, contractAddress } from "../utils/constants";
 export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
-
 const createEthereumContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
@@ -20,22 +19,12 @@ const createEthereumContract = () => {
 };
 
 export const TransactionsProvider = ({ children }) => {
-  const [formData, setformData] = useState({
-    addressTo: "",
-    amount: "",
-    keyword: "",
-    message: "",
-  });
   const [currentAccount, setCurrentAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem("transactionCount")
   );
   const [transactions, setTransactions] = useState([]);
-
-  const handleChange = (e, price, addressTo, keyword, message) => {
-    setformData({ addressTo, amount: price, keyword, message });
-  };
 
   const getAllTransactions = async () => {
     try {
@@ -123,13 +112,12 @@ export const TransactionsProvider = ({ children }) => {
     }
   };
 
-  const sendTransaction = async () => {
+  const sendTransaction = async (addressTo, amount, keyword, message) => {
     try {
       if (ethereum) {
-        const { addressTo, amount, keyword, message } = formData;
         const transactionsContract = createEthereumContract();
         const parsedAmount = ethers.utils.parseEther(amount);
-
+        console.log(parsedAmount);
         await ethereum.request({
           method: "eth_sendTransaction",
           params: [
@@ -165,7 +153,6 @@ export const TransactionsProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-
       throw new Error("No ethereum object");
     }
   };
@@ -184,8 +171,6 @@ export const TransactionsProvider = ({ children }) => {
         currentAccount,
         isLoading,
         sendTransaction,
-        handleChange,
-        formData,
       }}
     >
       {children}

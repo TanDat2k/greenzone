@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import { SiEthereum } from "react-icons/si";
 import { TransactionContext } from "../context/TransactionContext";
 
-const Item = ({ title, keyword, image, price, addressTo, onClick }) => {
+const Item = ({ title, image, amount, onClick }) => {
   return (
-    <div className="w-full max-w-sm rounded overflow-hidden shadow-lg bg-white mx-5">
+    <div className="w-full max-w-sm rounded overflow-hidden shadow-lg white-glassmorphism mx-5 text-white">
       <h1 className="text-3xl font-bold text-center py-2">{title}</h1>
       <img src={image} className="w-full h-56 object-cover" alt="" />
       <div className="flex flex-row justify-between m-2">
         <div className="flex flex-row justify-start items-center ">
-          <SiEthereum fontSize={18} color="#000" />
-          <p className="font-bold mx-2">{price}</p>
+          <SiEthereum fontSize={18} color="#fff" />
+          <p className="font-bold mx-2">{amount} Ethereum</p>
         </div>
         <button
           className="flex flex-row justify-center items-center my-1 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd] text-white"
@@ -24,13 +24,10 @@ const Item = ({ title, keyword, image, price, addressTo, onClick }) => {
 };
 
 const ItemShower = () => {
-  const { sendTransaction, handleChange } = useContext(TransactionContext);
-  const handleBuy = (price, addressTo, keyword, message) => {
-    // const { addressTo, amount, keyword, message } = formData;
-    console.log(price, addressTo, keyword, message);
-    if (!addressTo || !price || !keyword || !message) return;
-    handleChange(price, addressTo, keyword, message);
-    sendTransaction();
+  const { sendTransaction } = useContext(TransactionContext);
+  const handleBuy = async (addressTo, amount, keyword, message) => {
+    if (!addressTo || !amount || !keyword || !message) return;
+    await sendTransaction(addressTo, amount, keyword, message);
   };
   return (
     <div className="gradient-bg-services">
@@ -43,7 +40,12 @@ const ItemShower = () => {
             key={index}
             {...item}
             onClick={() =>
-              handleBuy(item.price, item.addressTo, item.keyword, item.title)
+              handleBuy(
+                item.addressTo,
+                parseFloat(item.amount).toString(),
+                item.keyword,
+                item.title
+              )
             }
           />
         ))}
@@ -51,14 +53,14 @@ const ItemShower = () => {
     </div>
   );
 };
-const accountTo = "0x224363cf654C55c40956C3abCAa84488F182AF0a";
+const accountTo = "0x6a0099Db2f4d8A197F8a1516Cb566c9cDd7650D9";
 const items = [
   {
     title: "Rừng tái sinh",
     keyword: "forest-credit",
     image:
       "https://ktmt.vnmediacdn.com/thumb_x600x/images/2021/05/12/31-1620832773-1-0915-20201104-73-182246.jpg",
-    price: "0.01",
+    amount: "0.001",
     addressTo: accountTo,
   },
   {
@@ -66,7 +68,7 @@ const items = [
     keyword: "sun-credit",
     image:
       "https://nangluongxanh360.vn/uploads/Files/nang-luong-mat-troi-la-gi-cach-tao-ra-dien-nang-luong-mat-troi-1.jpg",
-    price: "0.01",
+    amount: "0.001",
     addressTo: accountTo,
   },
   {
@@ -74,7 +76,7 @@ const items = [
     keyword: "wind-credit",
     image:
       "http://media.tietkiemnangluong.com.vn/Images/Upload//User/minhtrang/2015/5/16/161639693.jpg",
-    price: "0.01",
+    amount: "0.001",
     addressTo: accountTo,
   },
 ];

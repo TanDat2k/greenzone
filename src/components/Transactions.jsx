@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { TransactionContext } from "../context/TransactionContext";
-import useFetch from "../hooks/useFetch";
 import { shortenAddress } from "../utils/shortenAddress";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
@@ -12,10 +11,12 @@ const TransactionsCard = ({
   message,
   keyword,
   amount,
-  url,
 }) => {
-  // const gifUrl = useFetch({ keyword });
-
+  let imgUrl;
+  images.map((image) => {
+    if (image.keyword === keyword) imgUrl = image.url.toString();
+  });
+  console.log(imgUrl);
   return (
     <>
       <div
@@ -56,7 +57,7 @@ const TransactionsCard = ({
             )}
           </div>
           <img
-            src={keyword}
+            src={imgUrl}
             alt="nature"
             className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
           />
@@ -71,7 +72,6 @@ const TransactionsCard = ({
 
 const Transactions = () => {
   const { transactions, currentAccount } = useContext(TransactionContext);
-
   return (
     <>
       <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
@@ -115,5 +115,18 @@ const Transactions = () => {
     </>
   );
 };
-
+const images = [
+  {
+    keyword: "forest-credit",
+    url: "https://ktmt.vnmediacdn.com/thumb_x600x/images/2021/05/12/31-1620832773-1-0915-20201104-73-182246.jpg",
+  },
+  {
+    keyword: "sun-credit",
+    url: "https://nangluongxanh360.vn/uploads/Files/nang-luong-mat-troi-la-gi-cach-tao-ra-dien-nang-luong-mat-troi-1.jpg",
+  },
+  {
+    keyword: "wind-credit",
+    url: "http://media.tietkiemnangluong.com.vn/Images/Upload//User/minhtrang/2015/5/16/161639693.jpg",
+  },
+];
 export default Transactions;
