@@ -48,7 +48,7 @@ const Navbar = () => {
             onClick={connectWallet}
             className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
           >
-            <Link to="/thong-tin-tai-khoan">Xem chi tiết tài khoản </Link>
+            <Link to="/tai-khoan">Xem chi tiết tài khoản </Link>
           </li>
         )}
       </ul>
