@@ -5,7 +5,7 @@ import { TransactionContext } from "../context/TransactionContext";
 import logo from "../../images/logo.png";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 const NavBarItem = ({ title, classprops, link }) => (
   <li className={`mx-4 cursor-pointer ${classprops}`}>
     <NavLink to={link}>{title}</NavLink>
@@ -15,14 +15,7 @@ const NavBarItem = ({ title, classprops, link }) => (
 const Navbar = () => {
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = React.useState(false);
-  const {
-    currentAccount,
-    connectWallet,
-    handleChange,
-    sendTransaction,
-    formData,
-    isLoading,
-  } = useContext(TransactionContext);
+  const { currentAccount, connectWallet } = useContext(TransactionContext);
   const navItem = [
     { title: "Trang chủ", link: "/" },
     { title: "Chính sách bảo mật", link: "/chinh-sach-bao-mat" },
@@ -55,13 +48,7 @@ const Navbar = () => {
             onClick={connectWallet}
             className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
           >
-            <a
-              href={`https://sepolia.etherscan.io/address/${currentAccount}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Xem chi tiết tài khoản
-            </a>
+            <Link to="/thong-tin-tai-khoan">Xem chi tiết tài khoản </Link>
           </li>
         )}
       </ul>

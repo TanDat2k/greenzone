@@ -1,20 +1,20 @@
-import { Navbar, Footer, Services, Transactions } from "./components";
+import { Navbar, Footer } from "./components";
 import { Routes, Route } from "react-router-dom";
-import AboutPage from "./pages/AboutPage";
-import PrivatePage from "./pages/PrivatePage";
+import { AboutPage, PrivatePage, HomePage, AccountPage } from "./pages";
 
 const App = () => (
   <div className="min-h-full">
     <div className="gradient-bg-welcome">
       <Navbar />
     </div>
-    {/* <Services /> */}
+
     <Routes>
-      <Route path="/" element={<Services />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/ve-chung-toi" element={<AboutPage />} />
       <Route path="/chinh-sach-bao-mat" element={<PrivatePage />} />
+      <Route path="/thong-tin-tai-khoan" element={<AccountPage />} />
     </Routes>
-    {/* <Transactions /> */}
+
     <Footer />
   </div>
 );

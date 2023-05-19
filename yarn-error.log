@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Phuc\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-router-dom@6
+  C:\Program Files\nodejs\node.exe C:\Users\Phuc\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D eslint-plugin-react@latest
 
 PATH: 
-  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Phuc\AppData\Local\Microsoft\WindowsApps;C:\Users\Phuc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Phuc\AppData\Local\Programs\oh-my-posh\bin;C:\Users\Phuc\AppData\Roaming\npm
+  C:\Users\Phuc\AppData\Local\npm-cache\_npx\abe235584debfe0e\node_modules\.bin;D:\greenzone\node_modules\.bin;D:\node_modules\.bin;C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Phuc\AppData\Local\Microsoft\WindowsApps;C:\Users\Phuc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Phuc\AppData\Local\Programs\oh-my-posh\bin;C:\Users\Phuc\AppData\Roaming\npm
 
 Yarn version: 
   1.22.19
@@ -34,7 +34,8 @@ npm manifest:
       "postcss": "^8.3.11",
       "react": "^17.0.0",
       "react-dom": "^17.0.0",
-      "react-icons": "^4.3.1"
+      "react-icons": "^4.3.1",
+      "react-router-dom": "^6.11.2"
     },
     "devDependencies": {
       "@vitejs/plugin-react": "^1.0.0",
@@ -707,6 +708,11 @@ Lockfile:
     dependencies:
       "@nodelib/fs.scandir" "2.1.5"
       fastq "^1.6.0"
+  
+  "@remix-run/router@1.6.2":
+    version "1.6.2"
+    resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.6.2.tgz"
+    integrity sha512-LzqpSrMK/3JBAVBI9u3NWtOhWNw5AMQfrUFYB0+bDHTSw17z++WJLsPsxAuK+oSddsxk4d7F/JcdDPM1M5YAhA==
   
   "@rollup/pluginutils@^4.1.1":
     version "4.1.2"
@@ -2542,7 +2548,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
     integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
   
-  react-dom@^17.0.0, react-dom@>=16.13, "react-dom@>=16.8 || ^17.0.0":
+  react-dom@^17.0.0, react-dom@>=16.13, react-dom@>=16.8, "react-dom@>=16.8 || ^17.0.0":
     version "17.0.2"
     resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
     integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -2571,6 +2577,21 @@ Lockfile:
     resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
     integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
   
+  react-router-dom@^6.11.2:
+    version "6.11.2"
+    resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.11.2.tgz"
+    integrity sha512-JNbKtAeh1VSJQnH6RvBDNhxNwemRj7KxCzc5jb7zvDSKRnPWIFj9pO+eXqjM69gQJ0r46hSz1x4l9y0651DKWw==
+    dependencies:
+      "@remix-run/router" "1.6.2"
+      react-router "6.11.2"
+  
+  react-router@6.11.2:
+    version "6.11.2"
+    resolved "https://registry.npmjs.org/react-router/-/react-router-6.11.2.tgz"
+    integrity sha512-74z9xUSaSX07t3LM+pS6Un0T55ibUE/79CzfZpy5wsPDZaea1F8QkrsiyRnA2YQ7LwE/umaydzXZV80iDCPkMg==
+    dependencies:
+      "@remix-run/router" "1.6.2"
+  
   react-use-measure@^2.1.1:
     version "2.1.1"
     resolved "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz"
@@ -2578,7 +2599,7 @@ Lockfile:
     dependencies:
       debounce "^1.2.1"
   
-  react@*, react@^17.0.0, react@>=16.13, "react@>=16.8 || ^17.0.0", react@17.0.2:
+  react@*, react@^17.0.0, react@>=16.13, react@>=16.8, "react@>=16.8 || ^17.0.0", react@17.0.2:
     version "17.0.2"
     resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
     integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
