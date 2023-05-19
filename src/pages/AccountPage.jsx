@@ -29,7 +29,7 @@ const AccountPage = () => {
           </div>
         </div>
       </div>
-      <Transactions />
+      {/* <Transactions /> */}
     </div>
   );
 };
