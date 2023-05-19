@@ -1,10 +1,10 @@
-import { Services, Transactions, Welcome } from "../components";
+import { ItemShower, Services, Transactions, Welcome } from "../components";
 
 const HomePage = () => {
   return (
     <>
-      {/* <Welcome /> */}
       <Services />
+      <ItemShower />
     </>
   );
 };
