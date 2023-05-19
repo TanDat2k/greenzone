@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { TransactionsProvider } from "./context/TransactionContext";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <TransactionsProvider>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </TransactionsProvider>,
-  document.getElementById("root"),
+  document.getElementById("root")
 );

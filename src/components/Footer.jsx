@@ -6,10 +6,11 @@ const Footer = () => (
   <div className="w-full flex md:justify-center justify-between items-center flex-col p-4 gradient-bg-footer">
     <div className="flex justify-center items-center flex-col mt-5">
       <p className="text-white text-sm text-center">
-        Come join us and hear for the unexpected miracle
+        Hãy tham gia với chúng tôi và chung tay phát triển vì một môi trường
+        xanh
       </p>
       <p className="text-white text-sm text-center font-medium mt-2">
-        info@greenkrypt.com
+        info@greenzone.com
       </p>
     </div>
 

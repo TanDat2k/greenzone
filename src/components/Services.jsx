@@ -49,7 +49,7 @@ const Services = () => (
           color="bg-[#F84550]"
           title="Giao dịch nhanh nhất"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Nơi để bạn có thể thực hiện các giao dịch một cách nhanh chóng và hiệu quả nhất, hãy tham gia ngay để trải nghiệm!"
         />
       </div>
     </div>

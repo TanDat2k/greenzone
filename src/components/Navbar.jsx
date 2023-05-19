@@ -5,11 +5,15 @@ import { TransactionContext } from "../context/TransactionContext";
 import logo from "../../images/logo.png";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
-const NavBarItem = ({ title, classprops }) => (
-  <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
+import { NavLink, useNavigate } from "react-router-dom";
+const NavBarItem = ({ title, classprops, link }) => (
+  <li className={`mx-4 cursor-pointer ${classprops}`}>
+    <NavLink to={link}>{title}</NavLink>
+  </li>
 );
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = React.useState(false);
   const {
     currentAccount,
@@ -19,14 +23,22 @@ const Navbar = () => {
     formData,
     isLoading,
   } = useContext(TransactionContext);
+  const navItem = [
+    { title: "Trang chủ", link: "/" },
+    { title: "Chính sách bảo mật", link: "/chinh-sach-bao-mat" },
+    { title: "Về chúng tôi", link: "/ve-chung-toi" },
+  ];
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
+      <div
+        className="md:flex-[0.5] flex-initial justify-center items-center"
+        onClick={() => navigate("/")}
+      >
         <img src={logo} alt="logo" className="w-32 cursor-pointer" />
       </div>
-      <ul className="text-white md:flex  list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
-          <NavBarItem key={item + index} title={item} />
+      <ul className="text-white md:flex list-none flex-row justify-between items-center flex-initial hidden">
+        {navItem.map((item, index) => (
+          <NavBarItem key={index} title={item.title} link={item.link} />
         ))}
         {!currentAccount && (
           <li
@@ -76,15 +88,14 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Market", "Exchange", "Tutorials", "Wallets"].map(
-              (item, index) => (
-                <NavBarItem
-                  key={item + index}
-                  title={item}
-                  classprops="my-2 text-lg"
-                />
-              )
-            )}
+            {navItem.map((item, index) => (
+              <NavBarItem
+                key={index}
+                title={item.title}
+                link={item.link}
+                classprops="my-2 text-lg"
+              />
+            ))}
           </ul>
         )}
       </div>
