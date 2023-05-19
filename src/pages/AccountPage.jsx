@@ -5,7 +5,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { shortenAddress } from "../utils/shortenAddress";
 import { TransactionContext } from "../context/TransactionContext";
 const AccountPage = () => {
-  const { currentAccount } = useContext(TransactionContext);
+  // const { currentAccount } = useContext(TransactionContext);
   return (
     <div className="flex flex-col w-full justify-center items-center bg-black">
       {/* <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
