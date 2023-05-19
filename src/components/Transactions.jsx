@@ -5,7 +5,6 @@ import useFetch from "../hooks/useFetch";
 import { shortenAddress } from "../utils/shortenAddress";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
-import { shortenAddress } from "../utils/shortenAddress";
 const TransactionsCard = ({
   addressTo,
   addressFrom,
