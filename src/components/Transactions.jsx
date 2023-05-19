@@ -14,7 +14,7 @@ const TransactionsCard = ({
   amount,
   url,
 }) => {
-  const gifUrl = useFetch({ keyword });
+  // const gifUrl = useFetch({ keyword });
 
   return (
     <div
