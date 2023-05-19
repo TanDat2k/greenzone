@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <>
       <Services />
-      <Transactions />
+      {/* <Transactions /> */}
       <ItemShower />
     </>
   );
