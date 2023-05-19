@@ -16,7 +16,6 @@ const TransactionsCard = ({
   images.map((image) => {
     if (image.keyword === keyword) imgUrl = image.url.toString();
   });
-  console.log(imgUrl);
   return (
     <>
       <div
@@ -72,6 +71,12 @@ const TransactionsCard = ({
 
 const Transactions = () => {
   const { transactions, currentAccount } = useContext(TransactionContext);
+  const fillterdTransactions = transactions.filter(
+    (transaction) =>
+      transaction.addressTo.toUpperCase() === currentAccount.toUpperCase() ||
+      transaction.addressFrom.toUpperCase() === currentAccount.toUpperCase()
+  );
+  console.log(currentAccount);
   return (
     <>
       <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
@@ -106,7 +111,7 @@ const Transactions = () => {
           )}
 
           <div className="flex flex-wrap justify-center items-center mt-10">
-            {[...transactions].reverse().map((transaction, i) => (
+            {[...fillterdTransactions].reverse().map((transaction, i) => (
               <TransactionsCard key={i} {...transaction} />
             ))}
           </div>
