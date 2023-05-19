@@ -3,8 +3,6 @@ import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { TransactionContext } from "../context/TransactionContext";
 import logo from "../../images/logo.png";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { SiEthereum } from "react-icons/si";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 const NavBarItem = ({ title, classprops, link }) => (
   <li className={`mx-4 cursor-pointer ${classprops}`}>
@@ -44,10 +42,7 @@ const Navbar = () => {
           </li>
         )}
         {currentAccount && (
-          <li
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-          >
+          <li className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]">
             <Link to="/chi-tiet-vi">Xem chi tiết tài khoản </Link>
           </li>
         )}
